@@ -1,0 +1,65 @@
+[gd_scene load_steps=5 format=3 uid="uid://cis2y7iaj52nm"]
+
+[ext_resource type="Texture2D" uid="uid://yal6mpkd02iw" path="res://Assets/Character/Sprite-0001.png" id="2_yb5s4"]
+
+[sub_resource type="GDScript" id="GDScript_c5jsi"]
+script/source = "extends CharacterBody2D
+
+
+const SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
+
+
+func _physics_process(delta):
+	# Add the gravity
+	move_and_slide()
+	velocity.x = SPEED
+	velocity.y = SPEED/2
+	if Input.is_action_just_pressed(\"sauter\") :
+		velocity.y =  -2000
+	
+	
+#func _process(delta):
+	
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1diw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yb5s4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xb13k"]
+size = Vector2(122, 82.5)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(-3, 3)
+script = SubResource("GDScript_c5jsi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.999985, -6.5)
+scale = Vector2(0.41875, 0.365625)
+sprite_frames = SubResource("SpriteFrames_r1diw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visibility_layer = 1023
+position = Vector2(-18.1598, -223.326)
+scale = Vector2(5.07271, 33.0995)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, -5.25)
+shape = SubResource("RectangleShape2D_xb13k")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -580.306
+offset_top = -322.799
+offset_right = -540.306
+offset_bottom = -299.799
