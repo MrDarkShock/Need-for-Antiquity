@@ -11,6 +11,10 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 	# Add the gravity.
 	velocity.x = SPEED
-	velocity.y = SPEED
+	#velocity.y = SPEED
 	move_and_slide()
 	
+	
+func _process(delta):
+	if Input.is_action_pressed("sauter") :
+		velocity.y = JUMP_VELOCITY

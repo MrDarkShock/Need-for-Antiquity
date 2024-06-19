@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx2od5gia2t6e"]
+
+[ext_resource type="Script" path="res://advers.gd" id="1_8evag"]
+[ext_resource type="Texture2D" uid="uid://byr3wnt5d33co" path="res://icon.svg" id="1_vig6r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_my2wa"]
+size = Vector2(128, 122)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+script = ExtResource("1_8evag")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(136, 88)
+texture = ExtResource("1_vig6r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(136, 91)
+shape = SubResource("RectangleShape2D_my2wa")
