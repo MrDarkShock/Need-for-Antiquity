@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cis2y7iaj52nm"]
+[gd_scene load_steps=10 format=3 uid="uid://cis2y7iaj52nm"]
 
 [ext_resource type="Texture2D" uid="uid://b7n2mndp13808" path="res://Assets/Character/Deer Male 1.png" id="1_rnk8n"]
 [ext_resource type="Texture2D" uid="uid://6vrt88jlkicr" path="res://Assets/Character/Deer Male 2.png" id="2_pbfw2"]
@@ -37,7 +37,14 @@ func _physics_process(delta):
 
 func _on_vitesse_timeout():
 	SPEED=SPEED+3
-	
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group(\"ad\"):
+		Global.vie = Global.vie -1
+		if (Global.vie == 0) :
+			SPEED =0
+			$AnimatedSprite2D.stop()
+
 "
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1diw"]
@@ -66,6 +73,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xb13k"]
 size = Vector2(129, 95)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p6r1g"]
+size = Vector2(130, 96)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(-3, 3)
 script = SubResource("GDScript_c5jsi")
@@ -92,4 +102,11 @@ offset_bottom = -299.799
 
 [node name="vitesse" type="Timer" parent="."]
 
+[node name="Area2D" type="Area2D" parent="." groups=["a"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-2, -7)
+shape = SubResource("RectangleShape2D_p6r1g")
+
 [connection signal="timeout" from="vitesse" to="." method="_on_vitesse_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

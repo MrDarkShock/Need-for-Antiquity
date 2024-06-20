@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://csim2l0vrldis" path="res://Assets/ennemie/statue.png" id="1_dhxfj"]
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="Area2D" groups=["ad"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(9.3475, 16.18)
