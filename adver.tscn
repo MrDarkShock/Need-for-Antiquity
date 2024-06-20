@@ -3,8 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://csim2l0vrldis" path="res://Assets/ennemie/statue.png" id="1_dhxfj"]
 [ext_resource type="Script" path="res://adver.gd" id="1_scwjv"]
 
+
 [node name="Area2D" type="Area2D" groups=["ad"]]
 script = ExtResource("1_scwjv")
+
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["ad"]]
 scale = Vector2(-0.25, 0.25)

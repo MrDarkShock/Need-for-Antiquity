@@ -51,6 +51,8 @@ func _on_vitesse_timeout():
 	if SPEED > 500 :
 		SPEED = 300
 
+
+
 func _on_area_2d_area_entered(area):
 	if area.is_in_group(\"ad\"):
 		print (Global.vie)
@@ -60,7 +62,9 @@ func _on_area_2d_area_entered(area):
 			$AnimatedSprite2D.stop()
 
 
-"
+
+
+
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1diw"]
 animations = [{
@@ -88,10 +92,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xb13k"]
 size = Vector2(129, 95)
 
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ti0a"]
 size = Vector2(128, 94)
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["a"]]
+
 position = Vector2(-3, 3)
 collision_layer = 65535
 collision_mask = 65535
@@ -119,11 +125,13 @@ offset_bottom = -299.799
 
 [node name="vitesse" type="Timer" parent="."]
 
+
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-2, -8)
 shape = SubResource("RectangleShape2D_0ti0a")
+
 
 [connection signal="timeout" from="vitesse" to="." method="_on_vitesse_timeout"]
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -16,5 +16,7 @@ func _on_area_entered(area):
 		Global.points = Global.points + 5
 
 
+
 		
+
 
