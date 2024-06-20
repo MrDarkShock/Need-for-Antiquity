@@ -1,9 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://7fyj8yswjtox"]
+[gd_scene load_steps=3 format=3 uid="uid://cs172gabqf01a"]
 
 [ext_resource type="Texture2D" uid="uid://dbxfkg0cmow2b" path="res://Assets/Munition/boule de neige.png" id="1_ifvbo"]
 [ext_resource type="Script" path="res://boule.gd" id="1_r5mo3"]
 
-[node name="Area2D" type="Area2D" groups=["munition"]]
+[node name="Area2D2" type="Area2D" groups=["munition"]]
 script = ExtResource("1_r5mo3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["munition"]]
