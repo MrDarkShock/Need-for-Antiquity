@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://cetwnkwdl4w7u"]
+[gd_scene load_steps=3 format=3 uid="uid://cetwnkwdl4w7u"]
 
 [ext_resource type="Texture2D" uid="uid://8oeodvo3x2mr" path="res://Assets/ennemie/statue (2).png" id="1_8adxj"]
+[ext_resource type="Script" path="res://advers.gd" id="1_pb2br"]
+
+
+[node name="Area2D" type="Area2D" groups=["ad"]]
+script = ExtResource("1_pb2br")
 
 [node name="Area2D" type="Area2D" groups=["ad"]]
 
