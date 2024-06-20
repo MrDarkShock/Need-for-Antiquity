@@ -9,6 +9,7 @@ func _ready():
 	Global.points = 0	
 	$score.start ()
 	$CharacterBody2D/AnimatedSprite2D.play()
+
 	$CharacterBody2D/vitesse.start()
 	Global.vie = 3
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,6 +23,7 @@ func _process(delta):
 			$CharacterBody2D/Hearts3.hide()
 		if Global.vie == 0 :
 			$CharacterBody2D/Hearts1.hide()
+
 
 
 

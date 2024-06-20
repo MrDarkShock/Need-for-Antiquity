@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://cv43a55mgfw8n"]
+
+[ext_resource type="Script" path="res://Scene/menu_principal.gd" id="1_3g5fs"]
+[ext_resource type="Texture2D" uid="uid://uk08orhf2y0p" path="res://Button/Button Normal/Commencer Button.png" id="2_0l28s"]
+[ext_resource type="Texture2D" uid="uid://be46vb2epiwkd" path="res://Button/Button Highlighted/Commencer Button highlighted.png" id="3_fdp4m"]
+[ext_resource type="Texture2D" uid="uid://dscs7oxiy4u4m" path="res://Button/Button Normal/Quitter Button.png" id="4_tn46t"]
+[ext_resource type="PackedScene" uid="uid://vku1u26cagwm" path="res://Scene/fade_transition.tscn" id="6_wi78l"]
+[ext_resource type="Texture2D" uid="uid://dponjq822qwko" path="res://Button/Button Highlighted/Quitter Button Highlighted.png" id="7_hycby"]
+
+[node name="Menu Principal" type="Node2D"]
+script = ExtResource("1_3g5fs")
+
+[node name="Bouton_manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Commencer" type="TextureButton" parent="Bouton_manager"]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 400.0
+offset_right = 610.0
+offset_bottom = 535.0
+texture_normal = ExtResource("2_0l28s")
+texture_hover = ExtResource("3_fdp4m")
+stretch_mode = 5
+
+[node name="Quitter" type="TextureButton" parent="Bouton_manager"]
+layout_mode = 0
+offset_left = 770.0
+offset_top = 400.0
+offset_right = 1117.0
+offset_bottom = 535.0
+texture_normal = ExtResource("4_tn46t")
+texture_hover = ExtResource("7_hycby")
+stretch_mode = 5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(640, 358)
+zoom = Vector2(1.5, 1.5)
+
+[node name="Fade_transition" parent="." instance=ExtResource("6_wi78l")]
+visible = false
+
+[node name="fade_timer" type="Timer" parent="Fade_transition"]
+
+[connection signal="pressed" from="Bouton_manager/Commencer" to="." method="_on_commencer_pressed"]
+[connection signal="pressed" from="Bouton_manager/Quitter" to="." method="_on_quitter_pressed"]
