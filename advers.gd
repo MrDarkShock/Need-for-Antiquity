@@ -20,3 +20,4 @@ func _on_area_entered(area):
 		print ('z')
 		queue_free()
 		Global.points = Global.points + 5
+

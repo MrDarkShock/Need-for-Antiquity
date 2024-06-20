@@ -9,15 +9,19 @@ func _ready():
 	Global.points = 0	
 	$score.start ()
 	$CharacterBody2D/AnimatedSprite2D.play()
-<<<<<<< Updated upstream
-=======
 	$CharacterBody2D/vitesse.start()
 	Global.vie = 3
->>>>>>> Stashed changes
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	generate_obs()
 	$CharacterBody2D/Label2.text = str(Global.points)
+	if Global.vie == 2 :
+		$CharacterBody2D/Hearts2.hide()
+	else :
+		if Global.vie == 1 :
+			$CharacterBody2D/Hearts3.hide()
+		if Global.vie == 0 :
+			$CharacterBody2D/Hearts1.hide()
 
 
 
