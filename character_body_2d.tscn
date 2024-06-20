@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cis2y7iaj52nm"]
+[gd_scene load_steps=9 format=3 uid="uid://cis2y7iaj52nm"]
 
-[ext_resource type="Texture2D" uid="uid://yal6mpkd02iw" path="res://Assets/Character/Sprite-0001.png" id="2_yb5s4"]
+[ext_resource type="Texture2D" uid="uid://b7n2mndp13808" path="res://Assets/Character/Deer Male 1.png" id="1_rnk8n"]
+[ext_resource type="Texture2D" uid="uid://6vrt88jlkicr" path="res://Assets/Character/Deer Male 2.png" id="2_pbfw2"]
+[ext_resource type="Texture2D" uid="uid://4osmpo5hvdqg" path="res://Assets/Character/Deer Male 3.png" id="3_526g2"]
+[ext_resource type="Texture2D" uid="uid://bcumq0ebyjukf" path="res://Assets/Character/Deer Male 4.png" id="4_y7as3"]
+[ext_resource type="Texture2D" uid="uid://do40gq0ddy4dj" path="res://Assets/Character/Deer Male 5.png" id="5_v65nu"]
 
 [sub_resource type="GDScript" id="GDScript_c5jsi"]
 script/source = "extends CharacterBody2D
@@ -20,6 +24,11 @@ func _physics_process(delta):
 	velocity.y = SPEED/2
 	if Input.is_action_just_pressed(\"sauter\") and is_on_floor() :
 		velocity.y =  -2000
+		$AnimatedSprite2D.stop ()
+	else : 
+		if is_on_floor() :
+			$AnimatedSprite2D.play()
+		
 	
 	
 
@@ -35,7 +44,19 @@ func _on_vitesse_timeout():
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_yb5s4")
+"texture": ExtResource("1_rnk8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pbfw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_526g2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y7as3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v65nu")
 }],
 "loop": true,
 "name": &"default",
@@ -43,7 +64,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xb13k"]
-size = Vector2(122, 82.5)
+size = Vector2(129, 95)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(-3, 3)
@@ -51,7 +72,7 @@ script = SubResource("GDScript_c5jsi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.999985, -6.5)
-scale = Vector2(0.41875, 0.365625)
+scale = Vector2(4, 3.493)
 sprite_frames = SubResource("SpriteFrames_r1diw")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -60,7 +81,7 @@ position = Vector2(-18.1598, -223.326)
 scale = Vector2(5.07271, 33.0995)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5, -5.25)
+position = Vector2(-2.5, -7.5)
 shape = SubResource("RectangleShape2D_xb13k")
 
 [node name="Label" type="Label" parent="."]

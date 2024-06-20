@@ -989,13 +989,13 @@ script = ExtResource("1_10ymx")
 metadata/_edit_horizontal_guides_ = [-80.0]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_m8p2w")]
-position = Vector2(598.019, 541.864)
+position = Vector2(601.075, 566.751)
 
 [node name="Label2" type="Label" parent="CharacterBody2D"]
-offset_left = -583.0
-offset_top = -331.0
-offset_right = -543.0
-offset_bottom = -308.0
+offset_left = -584.774
+offset_top = -575.801
+offset_right = -544.774
+offset_bottom = -552.801
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2(474.056, 199.931)
