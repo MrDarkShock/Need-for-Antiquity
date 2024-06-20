@@ -9,10 +9,12 @@ func _ready():
 	Global.points = 0	
 	$score.start ()
 	$CharacterBody2D/AnimatedSprite2D.play()
-	# Called every frame. 'delta' is the elapsed time since the previous frame.
+	
+		# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	generate_obs()
 	$CharacterBody2D/Label2.text = str(Global.points)
+	
 
 
 

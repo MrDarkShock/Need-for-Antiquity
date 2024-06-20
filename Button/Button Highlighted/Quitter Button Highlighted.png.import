@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8oeodvo3x2mr"
-path="res://.godot/imported/statue (2).png-1e1e06b737338e4e07d1fa341a02a35c.ctex"
+uid="uid://dponjq822qwko"
+path="res://.godot/imported/Quitter Button Highlighted.png-7225af15f6c0eb252da76a2960381ee0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ennemie/statue (2).png"
-dest_files=["res://.godot/imported/statue (2).png-1e1e06b737338e4e07d1fa341a02a35c.ctex"]
+source_file="res://Button/Button Highlighted/Quitter Button Highlighted.png"
+dest_files=["res://.godot/imported/Quitter Button Highlighted.png-7225af15f6c0eb252da76a2960381ee0.ctex"]
 
 [params]
 
