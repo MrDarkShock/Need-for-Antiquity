@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://7fyj8yswjtox"]
+
+[ext_resource type="Texture2D" uid="uid://dbxfkg0cmow2b" path="res://Assets/Munition/boule de neige.png" id="1_ifvbo"]
+[ext_resource type="Script" path="res://boule.gd" id="1_r5mo3"]
+
+[node name="Area2D" type="Area2D" groups=["munition"]]
+script = ExtResource("1_r5mo3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["munition"]]
+texture = ExtResource("1_ifvbo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(10, -22.9, 10, -21, 23, -11, 23, -8.5, 26, -3.6, 26, 10, 24.5, 10, 22.5, 17, 20.9, 17, 12.9, 26, 10.5, 26, 4.5, 29, -6.4, 29, -16, 25.4, -16, 23.9, -25, 15.9, -25, 13.5, -28, 8.6, -28, -5, -26.5, -5, -24.5, -12, -22.9, -12, -14.9, -21, -12.3, -21, -8, -22.4, -8, -24.1)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." groups=["munition"]]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -27,7 +27,7 @@ func _physics_process(delta):
 	velocity.x = SPEED
 	
 	if Input.is_action_just_pressed(\"sauter\") and is_on_floor() :
-		velocity.y =  -7000
+		velocity.y =  -2000
 		$AnimatedSprite2D.stop ()
 	else : 
 		if is_on_floor() :
@@ -35,23 +35,20 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed(\"tir\") :
 		tir ()
+		print (\"a\")
 	
 
 func tir ():
 		var muni = munition[randi() % munition.size()] 
 		var mun = muni.instantiate()
-		mun.position = Vector2i ($AnimatedSprite2D.position.x+50,$AnimatedSprite2D.position.y)
+		mun.global_position = global_position
+		#velocity.mun.x = 300
 		add_child (mun)
 	
 
 
 func _on_vitesse_timeout():
 	SPEED=SPEED+3
-
-	if SPEED > 500 :
-		SPEED = 300
-
-
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group(\"ad\"):
@@ -60,8 +57,7 @@ func _on_area_2d_area_entered(area):
 			SPEED =0
 			$AnimatedSprite2D.stop()
 
-
-
+"
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1diw"]
 animations = [{
@@ -94,8 +90,6 @@ size = Vector2(130, 96)
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 position = Vector2(-3, 3)
-collision_layer = 65535
-collision_mask = 65535
 script = SubResource("GDScript_c5jsi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
