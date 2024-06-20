@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://ba2njempweta5"]
+[gd_scene load_steps=3 format=3 uid="uid://dhqnoet0aiyva"]
 
 [ext_resource type="Texture2D" uid="uid://com7g5mib5o55" path="res://Assets/Munition/cadeau de noël.png" id="1_1cxqm"]
 [ext_resource type="Script" path="res://cadeau.gd" id="1_02wpx"]

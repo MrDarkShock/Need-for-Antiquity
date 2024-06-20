@@ -10,14 +10,13 @@ func _ready():
 func _process(delta):
 	pass
 
+func _on_area_entered(area):
+	if area.is_in_group("munition"):
+		queue_free()
+		Global.points = Global.points + 5
+
 
 
 		
 
-
-func _on_area_entered(area):
-	if area.is_in_group("munition"):
-		print ('z')
-		queue_free()
-		Global.points = Global.points + 5
 

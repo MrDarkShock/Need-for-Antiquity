@@ -7,11 +7,9 @@
 [node name="Area2D" type="Area2D" groups=["ad"]]
 script = ExtResource("1_pb2br")
 
-[node name="Area2D" type="Area2D" groups=["ad"]]
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["ad"]]
+scale = Vector2(-0.25, 0.25)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = -3.14159
-scale = Vector2(0.25, -0.25)
 texture = ExtResource("1_8adxj")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
