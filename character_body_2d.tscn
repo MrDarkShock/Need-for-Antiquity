@@ -145,12 +145,6 @@ zoom = Vector2(1.5, 1.5)
 position = Vector2(-2.5, -7.5)
 shape = SubResource("RectangleShape2D_xb13k")
 
-[node name="Label" type="Label" parent="."]
-offset_left = -901.306
-offset_top = -716.799
-offset_right = -861.306
-offset_bottom = -693.799
-
 [node name="vitesse" type="Timer" parent="."]
 
 [node name="Area2D" type="Area2D" parent="." groups=["a"]]

@@ -26,7 +26,7 @@ func _process(delta):
 	if Global.oiseau < 2 :
 		generate_méchant()
 		Global.oiseau = Global.oiseau + 1
-	$CharacterBody2D/Label.text = str(Global.points)
+	$CharacterBody2D/Label2.text = str(Global.points)
 
 
 
