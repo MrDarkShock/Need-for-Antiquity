@@ -1,0 +1,54 @@
+[gd_scene load_steps=10 format=3 uid="uid://5kjfpfj51438"]
+
+[ext_resource type="Script" path="res://méchant2.gd" id="1_h00j0"]
+[ext_resource type="Texture2D" uid="uid://01qp22rwbgx8" path="res://Assets/Ennemi/Walk1.png" id="2_ktq4d"]
+[ext_resource type="Texture2D" uid="uid://b4d8w1mm6e1iw" path="res://Assets/Ennemi/Walk2.png" id="3_2b84p"]
+[ext_resource type="Texture2D" uid="uid://d0ixnt15usfx6" path="res://Assets/Ennemi/Walk3.png" id="4_6xybf"]
+[ext_resource type="Texture2D" uid="uid://b752cmkadtmtc" path="res://Assets/Ennemi/Walk4.png" id="5_0lvbt"]
+[ext_resource type="Texture2D" uid="uid://dmlj3oe5iw22f" path="res://Assets/Ennemi/Walk5.png" id="6_ygi32"]
+[ext_resource type="Texture2D" uid="uid://dkqr1opr7nj1y" path="res://Assets/Ennemi/Walk6.png" id="7_cgemb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2jkfj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ktq4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2b84p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_6xybf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0lvbt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ygi32")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_cgemb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_56s6d"]
+size = Vector2(93, 55)
+
+[node name="Area2D" type="Area2D" groups=["méchant"]]
+script = ExtResource("1_h00j0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(-5, 5)
+sprite_frames = SubResource("SpriteFrames_2jkfj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(13.5, 12.5)
+shape = SubResource("RectangleShape2D_56s6d")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
