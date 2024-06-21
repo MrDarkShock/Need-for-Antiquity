@@ -375,6 +375,15 @@ script = ExtResource("1_1jycr")
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_qovkb")]
 position = Vector2(609, 501)
 
+[node name="Label2" type="Label" parent="CharacterBody2D"]
+offset_left = -645.0
+offset_top = -574.0
+offset_right = -435.0
+offset_bottom = -539.0
+theme_override_font_sizes/font_size = 25
+text = "
+"
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2(474.056, 199.931)
 
