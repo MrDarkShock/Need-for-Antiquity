@@ -1,4 +1,5 @@
 extends Area2D
+
 var deplacement = Vector2()
 var vitesse = randf_range(-300,-1000)
 

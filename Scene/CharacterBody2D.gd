@@ -19,13 +19,13 @@ func _ready():
 func _process(delta):
 	generate_obs()
 	$CharacterBody2D/Label2.text = str(Global.points)
-	if Global.vie == 2 :
-		$CharacterBody2D/Hearts2.hide()
-	else :
-		if Global.vie == 1 :
-			$CharacterBody2D/Hearts3.hide()
-		if Global.vie == 0 :
-			$CharacterBody2D/Hearts1.hide()
+	#if Global.vie == 2 :
+		#$CharacterBody2D/Hearts2.hide()
+	#else :
+		#if Global.vie == 1 :
+			#$CharacterBody2D/Hearts3.hide()
+		#if Global.vie == 0 :
+			#$CharacterBody2D/Hearts1.hide()
 
 
 

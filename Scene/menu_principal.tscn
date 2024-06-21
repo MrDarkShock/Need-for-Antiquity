@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cv43a55mgfw8n"]
+[gd_scene load_steps=9 format=3 uid="uid://dll8jee3vvjl3"]
 
 [ext_resource type="Script" path="res://Scene/menu_principal.gd" id="1_3g5fs"]
 [ext_resource type="Texture2D" uid="uid://uk08orhf2y0p" path="res://Button/Button Normal/Commencer Button.png" id="2_0l28s"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dscs7oxiy4u4m" path="res://Button/Button Normal/Quitter Button.png" id="4_tn46t"]
 [ext_resource type="Texture2D" uid="uid://cktt4vsewoal1" path="res://Assets/Titre/Titre du jeu.png" id="6_0x6xv"]
 [ext_resource type="Texture2D" uid="uid://dponjq822qwko" path="res://Button/Button Highlighted/Quitter Button Highlighted.png" id="7_hycby"]
+[ext_resource type="AudioStream" uid="uid://8p5ayhx4n6yk" path="res://Assets/Sound/Menu Principal.mp3" id="7_ytm5s"]
+[ext_resource type="AudioStream" uid="uid://bh4bt1i1icmnv" path="res://Assets/Sound/Menu Validation Click.wav" id="8_dfmem"]
 
 [node name="Menu Principal" type="Node2D"]
 script = ExtResource("1_3g5fs")
@@ -50,6 +52,12 @@ stretch_mode = 5
 [node name="TitreDuJeu" type="Sprite2D" parent="."]
 position = Vector2(600, 200)
 texture = ExtResource("6_0x6xv")
+
+[node name="fond" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_ytm5s")
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_dfmem")
 
 [connection signal="pressed" from="Bouton_manager/Commencer" to="." method="_on_commencer_pressed"]
 [connection signal="pressed" from="Bouton_manager/Quitter" to="." method="_on_quitter_pressed"]

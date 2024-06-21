@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bw1yfoek28v6a"]
+[gd_scene load_steps=12 format=3 uid="uid://c6bjoph78qm8q"]
 
 [ext_resource type="Script" path="res://méchant.gd" id="1_04dnh"]
 [ext_resource type="Texture2D" uid="uid://r526yac8k1b0" path="res://Assets/Ennemi/BirdFlying1.png" id="1_5883t"]
