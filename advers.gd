@@ -13,7 +13,7 @@ func _process(delta):
 func _on_area_entered(area):
 	if area.is_in_group("munition"):
 		queue_free()
-		Global.points = Global.points + 5
+		Global.vie = Global.vie - 1
 
 
 

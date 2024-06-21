@@ -27,13 +27,16 @@ func _physics_process(delta):
 	velocity.x = SPEED
 	
 	if Input.is_action_just_pressed(\"sauter\")  :
-		position.y = position.y - 100
-		print (position.y)
-		$AnimatedSprite2D.stop ()
-		if position.y == 401 :
+		if position.y == 501 :
+			position.y = position.y - 130
+			print (position.y)
+			$AnimatedSprite2D.stop ()
+			$saut.start()
+		if position.y == 371 :
 			await ($saut.timeout)
-			position.y = position.y + 100
+			position.y = position.y + 130
 			$AnimatedSprite2D.play()
+			$saut.stop()
 	
 	if Input.is_action_just_pressed(\"tir\") :
 		tir ()
