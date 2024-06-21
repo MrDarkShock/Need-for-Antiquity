@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpr0uxlbh2sg5"]
+[gd_scene load_steps=7 format=3 uid="uid://bpr0uxlbh2sg5"]
 
 [ext_resource type="Script" path="res://test.gd" id="1_ksxvk"]
 [ext_resource type="PackedScene" uid="uid://cis2y7iaj52nm" path="res://character_body_2d.tscn" id="1_yo36s"]
 [ext_resource type="Texture2D" uid="uid://c8bm62jtpcvwv" path="res://Assets/Map/Level 1/egypt_tomb_v1.1.png" id="2_ivt8e"]
+[ext_resource type="Texture2D" path="res://Assets/Character/hearts 1.png" id="4_0wxqq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ea71"]
 texture = ExtResource("2_ivt8e")
@@ -989,9 +990,20 @@ script = ExtResource("1_ksxvk")
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_yo36s")]
 position = Vector2(234, 501)
 
-[node name="Label2" type="Label" parent="CharacterBody2D"]
-offset_right = 40.0
-offset_bottom = 23.0
+[node name="Hearts1" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-852, -730)
+scale = Vector2(3, 3)
+texture = ExtResource("4_0wxqq")
+
+[node name="Hearts2" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-816, -730)
+scale = Vector2(3, 3)
+texture = ExtResource("4_0wxqq")
+
+[node name="Hearts3" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(-780, -730)
+scale = Vector2(3, 3)
+texture = ExtResource("4_0wxqq")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scroll_offset = Vector2(474.056, 199.931)

@@ -34,7 +34,7 @@ func _physics_process(delta):
 			$saut.start()
 		if position.y == 371 :
 			await ($saut.timeout)
-			position.y = position.y + 130
+			position.y = 501
 			$AnimatedSprite2D.play()
 			$saut.stop()
 	
@@ -43,6 +43,8 @@ func _physics_process(delta):
 	
 
 func tir ():
+	if Global.nombretir < 0 :
+		Global.nombretir = 0
 	if Global.nombretir == 0 :
 		var muni = munition[randi() % munition.size()] 
 		var mun = muni.instantiate()
@@ -56,7 +58,7 @@ func _on_vitesse_timeout():
 	SPEED=SPEED+3
 
 	if SPEED > 500 :
-		SPEED = 300
+		SPEED = 500
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group(\"ad\"):
@@ -64,6 +66,12 @@ func _on_area_2d_area_entered(area):
 		if (Global.vie == 0) :
 			SPEED =0
 			$AnimatedSprite2D.stop()
+	if area.is_in_group(\"méchant\"):
+		Global.vie = Global.vie -1
+		if (Global.vie == 0) :
+			SPEED =0
+			$AnimatedSprite2D.stop()
+
 
 
 "
@@ -118,14 +126,14 @@ position = Vector2(-2.5, -7.5)
 shape = SubResource("RectangleShape2D_xb13k")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -580.306
-offset_top = -322.799
-offset_right = -540.306
-offset_bottom = -299.799
+offset_left = -901.306
+offset_top = -716.799
+offset_right = -861.306
+offset_bottom = -693.799
 
 [node name="vitesse" type="Timer" parent="."]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["a"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-2, -8)
