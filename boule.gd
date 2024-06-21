@@ -16,3 +16,11 @@ func _process(delta):
 func _on_area_entered(area):
 	if area.is_in_group("ad"):
 		queue_free()
+		Global.nombretir = Global.nombretir - 1
+		print (Global.nombretir)
+
+func _on_visible_on_screen_enabler_2d_screen_exited():
+	queue_free()
+	Global.nombretir = Global.nombretir -1
+	print (Global.nombretir)
+
