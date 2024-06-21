@@ -11,6 +11,7 @@ func _ready():
 	$CharacterBody2D/AnimatedSprite2D.play()
 	$CharacterBody2D/vitesse.start ()
 	$CharacterBody2D/vitesse.start()
+	$CharacterBody2D/saut.start()
 	Global.vie = 3
 
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
