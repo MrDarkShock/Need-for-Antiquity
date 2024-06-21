@@ -955,6 +955,6 @@ stream = ExtResource("7_di4yl")
 [node name="click" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_rsdnh")
 
-[connection signal="pressed" from="Bouton_manager/Level 1" to="." method="_on_commencer_pressed"]
 [connection signal="pressed" from="Bouton_manager/Level 1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="Bouton_manager/Level 1" to="." method="_on_commencer_pressed"]
 [connection signal="pressed" from="Bouton_manager/Level 2" to="." method="_on_level_2_pressed"]

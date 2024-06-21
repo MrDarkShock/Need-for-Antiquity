@@ -27,6 +27,8 @@ func _process(delta):
 		generate_méchant()
 		Global.oiseau = Global.oiseau + 1
 	$CharacterBody2D/Label2.text = str(Global.points)
+	if Global.vie == 0 :
+	get_tree().change_scene_to_file("res://Scene/GameOver/game_over_level_2.tscn")
 
 
 

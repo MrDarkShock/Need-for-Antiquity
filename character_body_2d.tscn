@@ -60,7 +60,7 @@ func _process(delta):
 				$aie.play()
 				$Hearts1.hide()
 				$fin.play()
-				get_tree().change_scene_to_file(\"res://Scene/Menu Principal/menu_principal.tscn\")
+				get_tree().change_scene_to_file(\"res://Scene/GameOver/game_over_level_1.tscn\".tscn\")
 
 func tir ():
 	if Global.nombretir < 0 :
