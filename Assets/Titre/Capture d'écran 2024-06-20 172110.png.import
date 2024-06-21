@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csim2l0vrldis"
-path="res://.godot/imported/statue.png-e7a3ef863657b8e541fee9c635a466d2.ctex"
+uid="uid://du4p1f045fnxb"
+path="res://.godot/imported/Capture d'écran 2024-06-20 172110.png-c0e558daefeddcaa9fffacb39f852a00.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/ennemie/statue.png"
-dest_files=["res://.godot/imported/statue.png-e7a3ef863657b8e541fee9c635a466d2.ctex"]
+source_file="res://Assets/Titre/Capture d'écran 2024-06-20 172110.png"
+dest_files=["res://.godot/imported/Capture d'écran 2024-06-20 172110.png-c0e558daefeddcaa9fffacb39f852a00.ctex"]
 
 [params]
 

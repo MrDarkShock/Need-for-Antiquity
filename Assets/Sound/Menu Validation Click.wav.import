@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bh4bt1i1icmnv"
+path="res://.godot/imported/Menu Validation Click.wav-132a0c8a437f040d31e7131beef44fa7.sample"
+
+[deps]
+
+source_file="res://Assets/Sound/Menu Validation Click.wav"
+dest_files=["res://.godot/imported/Menu Validation Click.wav-132a0c8a437f040d31e7131beef44fa7.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

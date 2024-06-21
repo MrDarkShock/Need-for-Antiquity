@@ -33,8 +33,6 @@ func _physics_process(delta):
 		if position.y == 401 :
 			await ($saut.timeout)
 			position.y = position.y + 100
-	else : 
-		if is_on_floor() :
 			$AnimatedSprite2D.play()
 	
 	if Input.is_action_just_pressed(\"tir\") :
