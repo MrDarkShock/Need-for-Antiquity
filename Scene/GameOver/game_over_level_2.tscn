@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dr828cs4jc0cj"]
+
+[node name="GameOverLevel2" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(600, 330)
+zoom = Vector2(1.7, 1.7)
