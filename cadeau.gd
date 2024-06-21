@@ -18,7 +18,10 @@ func _on_area_entered(area):
 	if area.is_in_group("ad"):
 		queue_free()
 		Global.nombretir = Global.nombretir - 1
-		print (Global.nombretir)
+	if area.is_in_group ('méchant'):
+		queue_free()
+		Global.nombretir = Global.nombretir - 1	
+		Global.points = Global.points + 5	
 
 
 

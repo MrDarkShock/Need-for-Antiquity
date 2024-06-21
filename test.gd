@@ -3,6 +3,8 @@ var adversaire_scene = preload("res://adver.tscn")
 var adversair_scene = preload("res://advers.tscn")
 var obs_x = 100
 var adv = [adversaire_scene, adversair_scene]
+var mech = preload("res://méchant.tscn")
+var m_x = 100
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,7 +19,17 @@ func _ready():
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	generate_obs()
+	if Global.oiseau < 2 :
+		generate_méchant()
+		Global.oiseau = Global.oiseau + 1
 	$CharacterBody2D/Label.text = str(Global.points)
+	#if Global.vie== 2 :
+		#$Hearts3.hide ()
+	#else :
+		#if Global.vie==1 :
+			#$Hearts2.hide ()
+		#if Global.vie == 0 :
+			#$Hearts1.hide()
 
 
 
@@ -38,7 +50,19 @@ func add_obs (obs, x ,y) :
 		add_child (obs)
 
 
+func generate_méchant ():
+		
+		var m = mech.instantiate()
+		m_x = m_x + 400
+		var m_y  = 371
+		m.position = Vector2i (m_x,m_y)
+		add_méchant (m,m_x,m_y)
 
+
+	
+func add_méchant (m, x ,y) :
+		m.position = Vector2i (x,y)
+		add_child (m)
 
 func _on_score_timeout():
 	Global.points = Global.points + 1

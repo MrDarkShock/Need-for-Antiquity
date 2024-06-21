@@ -1,0 +1,64 @@
+[gd_scene load_steps=12 format=3 uid="uid://bw1yfoek28v6a"]
+
+[ext_resource type="Script" path="res://méchant.gd" id="1_04dnh"]
+[ext_resource type="Texture2D" uid="uid://r526yac8k1b0" path="res://Assets/Ennemi/BirdFlying1.png" id="1_5883t"]
+[ext_resource type="Texture2D" uid="uid://c3j5ewurfhjm1" path="res://Assets/Ennemi/BirdFlying2.png" id="2_rww1k"]
+[ext_resource type="Texture2D" uid="uid://bk8bq2s7lo0vs" path="res://Assets/Ennemi/BirdFlying3.png" id="3_v5g33"]
+[ext_resource type="Texture2D" uid="uid://dik3g4thx6gsx" path="res://Assets/Ennemi/BirdFlying4.png" id="4_41dnp"]
+[ext_resource type="Texture2D" uid="uid://bergykjyayq7j" path="res://Assets/Ennemi/BirdFlying5.png" id="5_33f2d"]
+[ext_resource type="Texture2D" uid="uid://bqj4hqsy7cvoi" path="res://Assets/Ennemi/BirdFlying6.png" id="6_jvqti"]
+[ext_resource type="Texture2D" uid="uid://by4ugvs7ah7c3" path="res://Assets/Ennemi/BirdFlying7.png" id="7_ly20j"]
+[ext_resource type="Texture2D" uid="uid://ronf36yxwdrw" path="res://Assets/Ennemi/BirdFlying8.png" id="8_ovhkk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xxt04"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5883t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rww1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_v5g33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_41dnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_33f2d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jvqti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ly20j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ovhkk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fjci7"]
+size = Vector2(15, 9)
+
+[node name="Area2D" type="Area2D" groups=["méchant"]]
+position = Vector2(55, 4)
+script = ExtResource("1_04dnh")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_xxt04")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1.5)
+scale = Vector2(5, 5)
+shape = SubResource("RectangleShape2D_fjci7")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]
