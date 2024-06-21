@@ -1,0 +1,182 @@
+[gd_scene load_steps=13 format=3 uid="uid://cis2y7iaj52nm"]
+
+[ext_resource type="Texture2D" uid="uid://b7n2mndp13808" path="res://Assets/Character/Deer Male 1.png" id="1_rnk8n"]
+[ext_resource type="Texture2D" uid="uid://6vrt88jlkicr" path="res://Assets/Character/Deer Male 2.png" id="2_pbfw2"]
+[ext_resource type="Texture2D" uid="uid://4osmpo5hvdqg" path="res://Assets/Character/Deer Male 3.png" id="3_526g2"]
+[ext_resource type="Texture2D" uid="uid://bcumq0ebyjukf" path="res://Assets/Character/Deer Male 4.png" id="4_y7as3"]
+[ext_resource type="Texture2D" uid="uid://do40gq0ddy4dj" path="res://Assets/Character/Deer Male 5.png" id="5_v65nu"]
+[ext_resource type="Texture2D" uid="uid://cdjtf3gh627uf" path="res://Assets/Character/hearts 1.png" id="6_u8vw3"]
+[ext_resource type="AudioStream" uid="uid://ds6inomfywjq4" path="res://Assets/Sound/Jump.wav" id="7_rmluq"]
+[ext_resource type="AudioStream" uid="uid://ddcrnh3tr73wb" path="res://Assets/Sound/Shoot.wav" id="8_fvcj7"]
+
+[sub_resource type="GDScript" id="GDScript_c5jsi"]
+script/source = "extends CharacterBody2D
+
+var boule = preload(\"res://Scene/Munition/boule.tscn\")
+var cadeau = preload(\"res://Scene/Munition/cadeau.tscn\")
+var munition = [cadeau, boule]
+var SPEED = 300.0
+const JUMP_VELOCITY = -400.0
+const GRAVITY = 200
+
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting(\"physics/2d/default_gravity\")
+
+
+func _physics_process(delta):
+	# Add the gravity
+	move_and_slide()
+	#velocity.y = GRAVITY
+	velocity.x = SPEED
+	
+	if Input.is_action_just_pressed(\"sauter\")  :
+		if position.y == 501 :
+			position.y = position.y - 130
+			print (position.y)
+			$AnimatedSprite2D.stop ()
+			$saut.start()
+			$jump.play()
+		if position.y == 371 :
+			await ($saut.timeout)
+			position.y = 501
+			$AnimatedSprite2D.play()
+			$saut.stop()
+	
+	if Input.is_action_just_pressed(\"tir\") :
+		tir ()
+		$tir.play ()
+	
+func _process(delta):
+		if Global.vie==2 :
+			$Hearts3.hide()
+			print ('a')
+		else :
+			if Global.vie==1 :
+				$Hearts2.hide ()
+			if Global.vie==0 :
+				$Hearts1.hide()
+				get_tree().change_scene_to_file(\"res://Scene/menu_principal.tscn\")
+
+func tir ():
+	if Global.nombretir < 0 :
+		Global.nombretir = 0
+	if Global.nombretir == 0 :
+		var muni = munition[randi() % munition.size()] 
+		var mun = muni.instantiate()
+		mun.position = Vector2i ($AnimatedSprite2D.position.x+50,$AnimatedSprite2D.position.y)
+		add_child (mun)
+		Global.nombretir = Global.nombretir +1
+	
+
+
+func _on_vitesse_timeout():
+	SPEED=SPEED+3
+
+	if SPEED > 500 :
+		SPEED = 500
+
+func _on_area_2d_area_entered(area):
+	if area.is_in_group(\"ad\"):
+		if (Global.vie == 0) :
+			SPEED =0
+			$AnimatedSprite2D.stop()
+	if area.is_in_group(\"méchant\"):
+		Global.vie = Global.vie -1
+		if (Global.vie == 0) :
+			SPEED =0
+			$AnimatedSprite2D.stop()
+
+
+
+"
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1diw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rnk8n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pbfw2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_526g2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_y7as3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_v65nu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xb13k"]
+size = Vector2(129, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ti0a"]
+size = Vector2(92, 47)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["a"]]
+position = Vector2(-3, 3)
+collision_layer = 65535
+collision_mask = 65535
+script = SubResource("GDScript_c5jsi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.999985, -6.5)
+scale = Vector2(4, 3.493)
+sprite_frames = SubResource("SpriteFrames_r1diw")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+visibility_layer = 1023
+position = Vector2(-18.1598, -223.326)
+scale = Vector2(5.07271, 33.0995)
+zoom = Vector2(1.5, 1.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.5, -7.5)
+shape = SubResource("RectangleShape2D_xb13k")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -901.306
+offset_top = -716.799
+offset_right = -861.306
+offset_bottom = -693.799
+
+[node name="vitesse" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="." groups=["a"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-11, 0)
+shape = SubResource("RectangleShape2D_0ti0a")
+
+[node name="saut" type="Timer" parent="."]
+wait_time = 0.75
+
+[node name="Hearts1" type="Sprite2D" parent="."]
+position = Vector2(-570, -554)
+scale = Vector2(5, 5)
+texture = ExtResource("6_u8vw3")
+
+[node name="Hearts2" type="Sprite2D" parent="."]
+position = Vector2(-527, -554)
+scale = Vector2(5, 5)
+texture = ExtResource("6_u8vw3")
+
+[node name="Hearts3" type="Sprite2D" parent="."]
+position = Vector2(-482, -554)
+scale = Vector2(5, 5)
+texture = ExtResource("6_u8vw3")
+
+[node name="jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_rmluq")
+
+[node name="tir" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_fvcj7")
+
+[connection signal="timeout" from="vitesse" to="." method="_on_vitesse_timeout"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

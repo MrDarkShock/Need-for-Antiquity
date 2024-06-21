@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://dhqnoet0aiyva"]
 
-[ext_resource type="Texture2D" uid="uid://com7g5mib5o55" path="res://Assets/Munition/cadeau de noël.png" id="1_1cxqm"]
-[ext_resource type="Script" path="res://cadeau.gd" id="1_02wpx"]
+[ext_resource type="Script" path="res://Scene/Munition/cadeau.gd" id="1_8eskk"]
+[ext_resource type="Texture2D" uid="uid://com7g5mib5o55" path="res://Assets/Munition/cadeau de noël.png" id="2_w4p7y"]
 
 [node name="Area2D" type="Area2D" groups=["munition"]]
-script = ExtResource("1_02wpx")
+script = ExtResource("1_8eskk")
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["munition"]]
-texture = ExtResource("1_1cxqm")
+texture = ExtResource("2_w4p7y")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(22, -28.4, 23.7, -20, 32, -20, 32, 32, -32, 32, -32, -20, -23.7, -20, -22, -28.4, -22, -31, -5, -31, -5, -28.4, -3.6, -24, 3, -24, 3, -28.8, 22, -31.3)

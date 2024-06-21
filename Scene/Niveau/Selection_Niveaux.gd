@@ -7,7 +7,7 @@ func _ready():
 
 func _on_level_1_pressed():
 	$click.play()
-	get_tree().change_scene_to_file("res://test.tscn")
+	get_tree().change_scene_to_file("res://Scene/test.tscn")
 
 func _on_level_2_pressed():
 	$click.play()

@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://cetwnkwdl4w7u"]
 
-[ext_resource type="Script" path="res://advers.gd" id="1_pb2br"]
-[ext_resource type="Texture2D" uid="uid://8oeodvo3x2mr" path="res://Assets/Ennemi/statue (2).png" id="2_22teq"]
+[ext_resource type="Script" path="res://Scene/Ennemi/advers.gd" id="1_t183a"]
+[ext_resource type="Texture2D" uid="uid://8oeodvo3x2mr" path="res://Assets/Ennemi/statue (2).png" id="2_v2jk1"]
 
 [node name="Area2D" type="Area2D" groups=["ad"]]
-script = ExtResource("1_pb2br")
+script = ExtResource("1_t183a")
 
 [node name="Sprite2D" type="Sprite2D" parent="." groups=["ad"]]
 scale = Vector2(-0.25, 0.25)
-texture = ExtResource("2_22teq")
+texture = ExtResource("2_v2jk1")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 rotation = -3.14159

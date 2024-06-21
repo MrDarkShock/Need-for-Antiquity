@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://msnnyc7pf8fj"]
 
-[ext_resource type="Script" path="res://adver.gd" id="1_scwjv"]
+[ext_resource type="Script" path="res://Scene/Ennemi/adver.gd" id="1_scwjv"]
 [ext_resource type="Texture2D" uid="uid://csim2l0vrldis" path="res://Assets/Ennemi/statue.png" id="2_oo27j"]
 
 [node name="Area2D" type="Area2D" groups=["ad"]]

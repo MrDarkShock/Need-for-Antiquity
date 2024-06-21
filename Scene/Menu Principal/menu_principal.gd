@@ -4,7 +4,7 @@ var button_type = null
 
 func _on_commencer_pressed():
 	button_type = "commencer"
-	get_tree().change_scene_to_file("res://Scene/Selection_Niveaux.tscn")
+	get_tree().change_scene_to_file("res://Scene/Niveau/Selection_Niveaux.tscn")
 	$click.play()
 
 func _on_quitter_pressed():

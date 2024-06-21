@@ -1,11 +1,11 @@
 extends Node2D
-var adversaire_scene = preload("res://adver.tscn")
-var adversair_scene = preload("res://advers.tscn")
+var adversaire_scene = preload("res://Scene/Ennemi/adver.tscn")
+var adversair_scene = preload("res://Scene/Ennemi/adver.tscn")
 var obs_x = 100
 var adv = [adversaire_scene, adversair_scene]
-var mech = preload("res://méchant.tscn")
-var me = preload ("res://méchant2.tscn")
-var mec = preload ("res://méchant3.tscn")
+var mech = preload("res://Scene/Ennemi/méchant.tscn")
+var me = preload ("res://Scene/Ennemi/méchant2.tscn")
+var mec = preload ("res://Scene/Ennemi/méchant3.tscn")
 var listemechant = [mech,me,mec]
 var m_x = 100
 
@@ -19,6 +19,7 @@ func _ready():
 	$CharacterBody2D/saut.start()
 	Global.vie = 3
 	Global.oiseau = 0
+	Global.nombretir = 0
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	generate_obs()
