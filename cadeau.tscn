@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3pr1bsbobx22"]
+
+[ext_resource type="Texture2D" uid="uid://com7g5mib5o55" path="res://Assets/Munition/cadeau de noël.png" id="1_1cxqm"]
+[ext_resource type="Script" path="res://cadeau.gd" id="1_02wpx"]
+
+[node name="Area2D" type="Area2D" groups=["munition"]]
+script = ExtResource("1_02wpx")
+
+[node name="Sprite2D" type="Sprite2D" parent="." groups=["munition"]]
+texture = ExtResource("1_1cxqm")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(22, -28.4, 23.7, -20, 32, -20, 32, 32, -32, 32, -32, -20, -23.7, -20, -22, -28.4, -22, -31, -5, -31, -5, -28.4, -3.6, -24, 3, -24, 3, -28.8, 22, -31.3)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

@@ -19,7 +19,6 @@ func _ready():
 	$CharacterBody2D/saut.start()
 	Global.vie = 3
 	Global.oiseau = 0
-	Global.nombretir = 0
 	$sound.play()
 	# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

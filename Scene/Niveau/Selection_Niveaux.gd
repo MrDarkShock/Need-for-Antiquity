@@ -11,3 +11,4 @@ func _on_level_1_pressed():
 
 func _on_level_2_pressed():
 	$click.play()
+	get_tree().change_scene_to_file("res://Scene/Niveau/niveau2.tscn")
